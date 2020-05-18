@@ -10,12 +10,13 @@ if($action=='reg'){
     $nactivityid=$row['activity_id'];
     $nstudentid=$row['studentid'];
     $ndate=$row['date'];
+    $nname=$row['name'];
     $query="INSERT INTO `attendance` (`studentid`, `activity_id`, `date`) VALUES ('$nstudentid', '$nactivityid', '$ndate')";
     $stmt = $con->prepare($query);
     if($stmt->execute()){
-    $response ='Valid-'.$nstudentid.',';
+    $response =' succefully for:-'.$nname."\n";
     }else{
-    $response ='Not Valid-'.$nastudentid.',';
+    $response ='attendance taken unsuccessful for:-'.$nname."\n";
     }
     echo "$response";
     $stmt->store_result();
