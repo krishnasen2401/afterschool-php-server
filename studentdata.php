@@ -7,6 +7,7 @@ $final = array();
 while ( $row = $result->fetch_assoc())  {
 $row_array=array();
 $row_array['studentname']=$row['student name'];
+$row_array['studentid']=$row['studentid'];
 $row_array['activity list'] = array();
 $sql1="select distinct(activities_list.activity_name) as `activity name` from activities_list,activites_reg where activities_list.activity_id=activites_reg.activity_id and activites_reg.studentid='".$row['studentid']."'";
 $activityrowresult=mysqli_query($con,$sql1);
